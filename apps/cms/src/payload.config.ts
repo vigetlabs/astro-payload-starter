@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url'
 
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
+import { ReusableContent } from './collections/ReusableContent'
 import { Users } from './collections/Users'
 
 const filename = fileURLToPath(import.meta.url)
@@ -17,7 +18,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Media, Pages, Users],
+  collections: [Media, Pages, ReusableContent, Users],
   editor: lexicalEditor({}),
   // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
   secret: process.env.PAYLOAD_SECRET || '',
