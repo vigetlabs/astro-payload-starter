@@ -1,11 +1,12 @@
 import type { CollectionConfig } from 'payload/types'
 
+import { publishedOnly } from '@/access/publishedOnly'
 import { slugField } from '@/fields/slug'
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
   access: {
-    read: () => true,
+    read: publishedOnly,
   },
   admin: {
     useAsTitle: 'title',
