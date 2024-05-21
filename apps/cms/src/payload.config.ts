@@ -13,6 +13,9 @@ import { Posts } from './collections/Posts'
 import { ReusableContent } from './collections/ReusableContent'
 import { Users } from './collections/Users'
 
+import { Footer } from './globals/Footer'
+import { MainMenu } from './globals/MainMenu'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -21,6 +24,7 @@ export default buildConfig({
     user: Users.slug,
   },
   collections: [Categories, Media, Pages, Posts, ReusableContent, Users],
+  globals: [Footer, MainMenu],
   editor: lexicalEditor({}),
   // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
   secret: process.env.PAYLOAD_SECRET || '',
