@@ -11,7 +11,7 @@ export const Pages: CollectionConfig = {
     read: () => true,
   },
   admin: {
-    defaultColumns: ['title', 'slug', 'postDate'],
+    defaultColumns: ['title', 'slug', 'createdAt'],
     useAsTitle: 'title',
   },
   fields: [
@@ -31,17 +31,5 @@ export const Pages: CollectionConfig = {
       blocks: [LogoGrid, MediaBlock, ReusableContent],
     },
     slugField(),
-    {
-      name: 'postDate',
-      type: 'date',
-      required: true,
-      admin: {
-        date: {
-          pickerAppearance: 'dayAndTime',
-        },
-        position: 'sidebar',
-      },
-      defaultValue: () => new Date(),
-    },
   ],
 }

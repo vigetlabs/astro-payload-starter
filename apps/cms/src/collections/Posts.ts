@@ -10,7 +10,7 @@ export const Posts: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'slug', 'updatedAt'],
+    defaultColumns: ['title', 'slug', 'createdAt'],
   },
   versions: {
     drafts: true,
@@ -45,18 +45,6 @@ export const Posts: CollectionConfig = {
       },
     },
     slugField(),
-    {
-      name: 'postDate',
-      type: 'date',
-      required: true,
-      admin: {
-        date: {
-          pickerAppearance: 'dayAndTime',
-        },
-        position: 'sidebar',
-      },
-      defaultValue: () => new Date(),
-    },
     {
       name: 'authors',
       type: 'relationship',
