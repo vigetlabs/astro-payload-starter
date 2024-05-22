@@ -1,32 +1,39 @@
-# Turborepo starter
+# Astro + Payload CMS Starter
 
-This is an official starter Turborepo.
+This is a project starter for Astro + Payload CMS using Turborepo.
 
-## Using this example
+## Create Project
 
-Run the following command:
+TODO: Instructions for _creating_ a new project with this starter.
+
+## Requirements
+
+- Node
+- MongoDB - You need to either have MongoDB running locally, or have signed up for a free MongoDB Atlas server in order to test this repo locally.
+
+## Installation
+
+Run the following commands:
 
 ```sh
-npx create-turbo@latest
+pnpm install
+cp apps/cms/.env.example apps/cms/.env
 ```
 
-## What's inside?
+## What's included?
 
-This Turborepo includes the following packages/apps:
+This project starter includes the following apps and packages:
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+- `cms`: a [Payload CMS](https://payloadcms.com/) app
+- `web`: an [Astro](https://astro.build/) app
 - `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
 ### Utilities
 
-This Turborepo has some additional tools already setup for you:
+This Turborepo has some additional tools already set up:
 
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
 - [ESLint](https://eslint.org/) for code linting
@@ -36,38 +43,19 @@ This Turborepo has some additional tools already setup for you:
 
 To build all apps and packages, run the following command:
 
-```
-cd my-turborepo
-pnpm build
+```sh
+turbo build
 ```
 
 ### Develop
 
 To develop all apps and packages, run the following command:
 
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
+```sh
+turbo dev
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
+Browse to http://localhost:3000/admin for Payload CMS and http://localhost:4321 for the Astro site!
 
 ## Useful Links
 
