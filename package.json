@@ -1,5 +1,6 @@
 {
   "name": "astro-payload-starter",
+  "description": "A Turborepo starter for Astro + Payload CMS",
   "private": true,
   "scripts": {
     "build": "turbo build",
