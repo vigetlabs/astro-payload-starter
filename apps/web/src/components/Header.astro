@@ -1,0 +1,24 @@
+---
+type Props = {
+  home: boolean
+}
+
+const { home } = Astro.props as Props
+---
+
+<header>
+  {home && <h1>Logo</h1>}
+  {!home && <a href="/">Logo</a>}
+  <a href="/blog">Blog</a>
+</header>
+
+<style>
+  header {
+    align-items: center;
+    background-color: #111;
+    color: white;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+  }
+</style>

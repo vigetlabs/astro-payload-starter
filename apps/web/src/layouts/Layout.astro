@@ -1,0 +1,27 @@
+---
+import Header from '@/components/Header.astro'
+import Footer from '@/components/Footer.astro'
+
+const { title } = Astro.props
+const isHomepage = Astro.url.pathname === '/'
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="stylesheet" href="/application.min.css" />
+  </head>
+  <body>
+    <Header home={isHomepage} />
+
+    <main id="content" role="main">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>
