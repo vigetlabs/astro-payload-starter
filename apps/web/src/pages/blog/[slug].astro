@@ -1,0 +1,29 @@
+---
+import type { Post } from '@repo/cms'
+
+import { getPostCollection } from '@/api'
+import Layout from '@/layouts/Layout.astro'
+
+interface Props {
+  post: Post
+}
+
+export async function getStaticPaths() {
+  const posts = await getPostCollection()
+
+  return posts.docs.map((post: Post) => {
+    return {
+      params: { slug: post.slug },
+      props: { post },
+    }
+  })
+}
+
+const { post } = Astro.props
+const { title, content_html } = post
+---
+
+<Layout title={title}>
+  <h1>{title}</h1>
+  <Fragment set:html={content_html} />
+</Layout>

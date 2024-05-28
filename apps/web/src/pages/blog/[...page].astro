@@ -1,0 +1,28 @@
+---
+import type { GetStaticPathsOptions, Page } from 'astro'
+import type { Post } from '@repo/cms'
+import { getPostCollection } from '@/api'
+import Layout from '@/layouts/Layout.astro'
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const posts = await getPostCollection()
+
+  return paginate(posts.docs, { pageSize: 10 })
+}
+
+const { page } = Astro.props as { page: Page }
+---
+
+<Layout title="Blog">
+  <h1>Blog Index</h1>
+  <ul>
+    {page.data.map((post: Post) => <li>{post.title}</li>)}
+  </ul>
+  {
+    page.lastPage > 1 && (
+      <p>
+        Page {page.currentPage} of {page.lastPage}
+      </p>
+    )
+  }
+</Layout>

@@ -52,6 +52,8 @@ export interface Media {
   filesize?: number | null;
   width?: number | null;
   height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -109,7 +111,6 @@ export interface Page {
       }
   )[];
   slug: string;
-  postDate: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -185,9 +186,9 @@ export interface Post {
     };
     [k: string]: unknown;
   };
+  content_html?: string | null;
   relatedPosts?: (string | Post)[] | null;
   slug: string;
-  postDate: string;
   authors?: (string | User)[] | null;
   categories?: (string | Category)[] | null;
   updatedAt: string;

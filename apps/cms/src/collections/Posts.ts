@@ -1,4 +1,9 @@
 import type { CollectionConfig } from 'payload/types'
+import {
+  HTMLConverterFeature,
+  lexicalEditor,
+  lexicalHTML,
+} from '@payloadcms/richtext-lexical'
 
 import { publishedOnly } from '@/access/publishedOnly'
 import { slugField } from '@/fields/slug'
@@ -30,7 +35,14 @@ export const Posts: CollectionConfig = {
       name: 'content',
       type: 'richText',
       required: true,
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [
+          ...defaultFeatures,
+          HTMLConverterFeature({}),
+        ],
+      }),
     },
+    lexicalHTML('content', { name: 'content_html' }),
     {
       name: 'relatedPosts',
       type: 'relationship',
