@@ -1,11 +1,32 @@
 ---
+import type { Footer } from '@repo/cms'
+import { getFooterGlobals } from '@/api'
+import Link, { type Props as LinkProps } from './Link.astro'
 
+const footerNavData = (await getFooterGlobals()) as Footer
+const { navColumns } = footerNavData
 ---
 
 <footer id="footer" class="footer">
   <p>
     © {new Date().getFullYear()} All rights reserved.
   </p>
+  <nav class="nav">
+    {
+      navColumns?.map(({ label, navItems }) => (
+        <div>
+          <h3>{label}</h3>
+          <ul>
+            {navItems?.map(({ link }) => (
+              <li>
+                <Link {...(link as LinkProps)} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </nav>
 </footer>
 
 <style>
@@ -13,5 +34,19 @@
     background-color: #444;
     color: #fff;
     padding: 1rem;
+
+    a {
+      color: #fff;
+    }
+  }
+
+  .nav {
+    display: flex;
+    gap: 1rem;
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
   }
 </style>
