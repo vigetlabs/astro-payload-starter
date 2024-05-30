@@ -70,6 +70,28 @@ export const MainMenu: GlobalConfig = {
           ],
         },
       ],
+      admin: {
+        initCollapsed: true,
+      },
+    },
+    {
+      name: 'ctas',
+      type: 'array',
+      label: 'CTAs',
+      labels: {
+        singular: 'CTA',
+        plural: 'CTAs',
+      },
+      fields: [
+        link({
+          overrides: {
+            label: false,
+          },
+        }),
+      ],
+      admin: {
+        initCollapsed: true,
+      },
     },
   ],
 }
