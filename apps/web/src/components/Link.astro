@@ -1,0 +1,53 @@
+---
+import type { Page, Post } from '@repo/cms'
+
+export interface Props {
+  appearance?: 'primary' | 'secondary' | 'default'
+  label: string
+  newTab?: boolean | null
+  reference?: {
+    relationTo: 'pages' | 'posts'
+    value: Page | Post | string
+  } | null
+  type: ('reference' | 'custom') | null
+  url?: string | null
+}
+
+const { appearance, label, newTab, reference, type, url } = Astro.props
+const href =
+  type === 'reference' &&
+  typeof reference?.value === 'object' &&
+  reference.value.slug
+    ? `${reference?.relationTo === 'posts' ? '/blog' : ''}/${reference.value.slug}`
+    : url
+const newTabProps = newTab
+  ? { rel: 'noopener noreferrer', target: '_blank' }
+  : {}
+---
+
+<a
+  href={href}
+  {...newTabProps}
+  class:list={[
+    {
+      primary: appearance === 'primary',
+      secondary: appearance === 'secondary',
+    },
+  ]}
+>
+  {label}
+</a>
+
+<style>
+  .primary {
+    border: 2px solid #bc52ee;
+    border-radius: 9em;
+    padding: 0.5rem 1rem;
+  }
+
+  .secondary {
+    border: 2px solid #bc52ee88;
+    border-radius: 9em;
+    padding: 0.5rem 1rem;
+  }
+</style>
