@@ -9,7 +9,7 @@ interface Props {
 }
 
 const mainMenuData = (await getMainMenuGlobals()) as MainMenu
-const { tabs } = mainMenuData
+const { tabs, ctas } = mainMenuData
 const { home } = Astro.props
 ---
 
@@ -39,6 +39,7 @@ const { home } = Astro.props
         }
       })
     }
+    {ctas?.map(({ link }) => <Link {...(link as LinkProps)} />)}
   </nav>
 </header>
 
@@ -57,6 +58,7 @@ const { home } = Astro.props
   }
 
   nav {
+    align-items: center;
     display: flex;
     gap: 1rem;
     list-style: none;
