@@ -27,6 +27,7 @@ export async function getPayloadCollection<CollectionType>(
   return apiFetch<PaginatedDocs<CollectionType>>(url + stringifiedQuery)
 }
 
-export async function getPayloadDocument<CollectionType>(url: string | URL) {
+export async function getPayloadDocument<CollectionType>(path: string) {
+  const url = `${import.meta.env.ASTRO_PUBLIC_CMS_URL}/api${path}`
   return apiFetch<CollectionType>(url)
 }
