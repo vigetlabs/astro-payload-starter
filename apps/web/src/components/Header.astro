@@ -1,15 +1,45 @@
 ---
+import type { MainMenu, Page } from '@repo/cms'
+import { getMainMenuGlobals } from '@/api'
+import type { Props as LinkProps } from './Link.astro'
+import Link from './Link.astro'
+
 interface Props {
   home: boolean
 }
 
+const mainMenuData = (await getMainMenuGlobals()) as MainMenu
+const { tabs } = mainMenuData
 const { home } = Astro.props
 ---
 
 <header>
   {home && <h1>Logo</h1>}
   {!home && <a href="/">Logo</a>}
-  <a href="/blog">Blog</a>
+  <nav>
+    {
+      tabs?.map(({ label, type, link, dropdownLinks }) => {
+        switch (type) {
+          case 'dropdown':
+            return (
+              <details>
+                <summary>{label}</summary>
+                <ul class="dropdown">
+                  {dropdownLinks?.map(({ link }) => (
+                    <li>
+                      <Link {...(link as LinkProps)} />
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            )
+          case 'directLink': {
+            return <Link {...(link as LinkProps)} />
+          }
+        }
+      })
+    }
+  </nav>
 </header>
 
 <style>
@@ -20,5 +50,27 @@ const { home } = Astro.props
     display: flex;
     gap: 1rem;
     padding: 1rem;
+
+    a {
+      color: #fff;
+    }
+  }
+
+  nav {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+  }
+
+  summary {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .dropdown {
+    background: #555;
+    list-style: none;
+    padding: 0.5rem;
+    position: absolute;
   }
 </style>
