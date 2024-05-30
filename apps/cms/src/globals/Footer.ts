@@ -27,10 +27,10 @@ export const Footer: GlobalConfig = {
           minRows: 1,
           fields: [
             link({
+              appearances: false,
               overrides: {
                 label: false,
               },
-              appearances: false,
             }),
           ],
         },

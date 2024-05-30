@@ -16,11 +16,6 @@ export const MainMenu: GlobalConfig = {
       label: 'Main Menu Items',
       fields: [
         {
-          name: 'label',
-          type: 'text',
-          required: true,
-        },
-        {
           name: 'type',
           type: 'radio',
           required: true,
@@ -36,6 +31,14 @@ export const MainMenu: GlobalConfig = {
           ],
         },
         {
+          name: 'label',
+          type: 'text',
+          required: true,
+          admin: {
+            condition: (_, siblingData) => siblingData.type === 'dropdown',
+          },
+        },
+        {
           label: 'Direct Link',
           type: 'collapsible',
           admin: {
@@ -44,7 +47,6 @@ export const MainMenu: GlobalConfig = {
           fields: [
             link({
               appearances: false,
-              disableLabel: true,
               overrides: {
                 label: false,
               },
@@ -60,10 +62,10 @@ export const MainMenu: GlobalConfig = {
           },
           fields: [
             link({
+              appearances: false,
               overrides: {
                 label: false,
               },
-              appearances: false,
             }),
           ],
         },
