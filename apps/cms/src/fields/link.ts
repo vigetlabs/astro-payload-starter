@@ -33,6 +33,7 @@ const link: LinkType = ({
   let linkResult: Field = {
     name: 'link',
     type: 'group',
+    interfaceName: 'LinkField',
     admin: {
       hideGutter: true,
       ...(overrides?.admin || {}),
