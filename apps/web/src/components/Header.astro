@@ -1,14 +1,14 @@
 ---
-import type { LinkField, MainMenu } from '@repo/cms'
-import { getMainMenuGlobals } from '@/api'
+import type { LinkField, Header } from '@repo/cms'
+import { getHeaderGlobals } from '@/api'
 import Link from './Link.astro'
 
 interface Props {
   home: boolean
 }
 
-const mainMenuData = (await getMainMenuGlobals()) as MainMenu
-const { tabs, ctas } = mainMenuData
+const headerData = (await getHeaderGlobals()) as Header
+const { tabs, ctas } = headerData
 const { home } = Astro.props
 ---
 

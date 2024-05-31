@@ -19,7 +19,7 @@ export interface Config {
   };
   globals: {
     footer: Footer;
-    'main-menu': MainMenu;
+    header: Header;
   };
   locale: null;
   user: User & {
@@ -292,9 +292,9 @@ export interface LinkField {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "main-menu".
+ * via the `definition` "header".
  */
-export interface MainMenu {
+export interface Header {
   id: string;
   tabs?:
     | {

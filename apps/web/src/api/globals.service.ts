@@ -1,4 +1,4 @@
-import type { Footer, MainMenu } from '@repo/cms'
+import type { Footer, Header } from '@repo/cms'
 import { getPayloadDocument } from './api.service'
 
 export async function getFooterGlobals() {
@@ -6,7 +6,7 @@ export async function getFooterGlobals() {
   return getPayloadDocument<Footer>(path)
 }
 
-export async function getMainMenuGlobals() {
-  const path = '/globals/main-menu'
-  return getPayloadDocument<MainMenu>(path)
+export async function getHeaderGlobals() {
+  const path = '/globals/header'
+  return getPayloadDocument<Header>(path)
 }

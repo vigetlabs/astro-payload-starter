@@ -13,7 +13,7 @@ import { ReusableContent } from './collections/ReusableContent'
 import { Users } from './collections/Users'
 
 import { Footer } from './globals/Footer'
-import { MainMenu } from './globals/MainMenu'
+import { Header } from './globals/Header'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -23,7 +23,7 @@ export default buildConfig({
     user: Users.slug,
   },
   collections: [Categories, Media, Pages, Posts, ReusableContent, Users],
-  globals: [Footer, MainMenu],
+  globals: [Footer, Header],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

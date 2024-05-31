@@ -3,8 +3,8 @@ import type { GlobalConfig } from 'payload/types'
 import { isAdmin } from '@/access/isAdmin'
 import link from '@/fields/link'
 
-export const MainMenu: GlobalConfig = {
-  slug: 'main-menu',
+export const Header: GlobalConfig = {
+  slug: 'header',
   access: {
     read: () => true,
     update: isAdmin,
@@ -13,7 +13,7 @@ export const MainMenu: GlobalConfig = {
     {
       name: 'tabs',
       type: 'array',
-      label: 'Main Menu Items',
+      label: 'Main Menu',
       fields: [
         {
           name: 'type',
