@@ -2,11 +2,11 @@ import type { Footer, MainMenu } from '@repo/cms'
 import { getPayloadDocument } from './api.service'
 
 export async function getFooterGlobals() {
-  const url = `${import.meta.env.ASTRO_PUBLIC_CMS_URL}/api/globals/footer`
-  return getPayloadDocument<Footer>(url)
+  const path = '/globals/footer'
+  return getPayloadDocument<Footer>(path)
 }
 
 export async function getMainMenuGlobals() {
-  const url = `${import.meta.env.ASTRO_PUBLIC_CMS_URL}/api/globals/main-menu`
-  return getPayloadDocument<MainMenu>(url)
+  const path = '/globals/main-menu'
+  return getPayloadDocument<MainMenu>(path)
 }
