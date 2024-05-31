@@ -2,19 +2,16 @@
 import type { LinkField, Header } from '@repo/cms'
 import { getHeaderGlobals } from '@/api'
 import Link from './Link.astro'
-
-interface Props {
-  home: boolean
-}
+import InlineSvg from './InlineSvg.astro'
 
 const headerData = (await getHeaderGlobals()) as Header
 const { tabs, ctas } = headerData
-const { home } = Astro.props
 ---
 
 <header>
-  {home && <h1>Logo</h1>}
-  {!home && <a href="/">Logo</a>}
+  <a href="/">
+    <InlineSvg name="logo" />
+  </a>
   <nav>
     {
       tabs?.map(({ label, type, link, dropdownLinks }) => {

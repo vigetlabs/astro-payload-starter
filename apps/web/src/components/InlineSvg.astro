@@ -1,0 +1,29 @@
+---
+export interface Props {
+  /**
+    The file name omitting the extension.
+  */
+  name: string
+  /**
+    Additional classes to pass to the SVG element.
+  */
+  class?: string
+}
+
+const { name, class: classNames } = Astro.props
+
+function addClassNamesToInnerHTMLString(
+  innerHTML: string,
+  classNames?: string
+) {
+  return innerHTML.replace(
+    /^<svg/,
+    `<svg ${classNames ? `class="${classNames}"` : ''} aria-hidden="true"`
+  )
+}
+
+const { default: svg } = await import(`../images/${name}.svg?raw`)
+const innerHTML = addClassNamesToInnerHTMLString(svg, classNames)
+---
+
+<Fragment set:html={innerHTML} />

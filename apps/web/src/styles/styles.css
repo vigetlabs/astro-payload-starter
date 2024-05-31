@@ -1,1 +1,5 @@
 @import 'https://unpkg.com/modern-normalize';
+
+:root {
+  --theme-color: #bc52ee;
+}

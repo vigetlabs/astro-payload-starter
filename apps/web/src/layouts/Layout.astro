@@ -4,7 +4,6 @@ import Header from '@/components/Header.astro'
 import Footer from '@/components/Footer.astro'
 
 const { title } = Astro.props
-const isHomepage = Astro.url.pathname === '/'
 ---
 
 <html lang="en">
@@ -16,7 +15,7 @@ const isHomepage = Astro.url.pathname === '/'
     <title>{title}</title>
   </head>
   <body>
-    <Header home={isHomepage} />
+    <Header />
 
     <main id="content" role="main">
       <slot />
