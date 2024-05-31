@@ -1,18 +1,4 @@
 ---
-import type { Page, Post } from '@repo/cms'
-
-export interface Props {
-  appearance?: 'primary' | 'secondary' | 'default'
-  label: string
-  newTab?: boolean | null
-  reference?: {
-    relationTo: 'pages' | 'posts'
-    value: Page | Post | string
-  } | null
-  type: ('reference' | 'custom') | null
-  url?: string | null
-}
-
 const { appearance, label, newTab, reference, type, url } = Astro.props
 const href =
   type === 'reference' &&

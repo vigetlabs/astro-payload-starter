@@ -1,7 +1,7 @@
 ---
-import type { Footer } from '@repo/cms'
+import type { Footer, LinkField } from '@repo/cms'
 import { getFooterGlobals } from '@/api'
-import Link, { type Props as LinkProps } from './Link.astro'
+import Link from './Link.astro'
 
 const footerNavData = (await getFooterGlobals()) as Footer
 const { navColumns } = footerNavData
@@ -19,7 +19,7 @@ const { navColumns } = footerNavData
           <ul>
             {navItems?.map(({ link }) => (
               <li>
-                <Link {...(link as LinkProps)} />
+                <Link {...(link as LinkField)} />
               </li>
             ))}
           </ul>
