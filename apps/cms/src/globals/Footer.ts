@@ -1,7 +1,7 @@
 import type { GlobalConfig } from 'payload/types'
 
 import { isAdmin } from '@/access/isAdmin'
-import link from '../fields/link'
+import link from '@/fields/link'
 
 export const Footer: GlobalConfig = {
   slug: 'footer',
