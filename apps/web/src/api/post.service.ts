@@ -2,8 +2,8 @@ import type { Post } from '@repo/cms'
 import { getPayloadCollection } from './api.service'
 
 export async function getPostCollection(query: any = null) {
-  const url = `${import.meta.env.ASTRO_PUBLIC_CMS_URL}/api/posts`
-  return getPayloadCollection<Post>(url, query)
+  const path = '/posts'
+  return getPayloadCollection<Post>(path, query)
 }
 
 export async function getPostSingle(slug: string): Promise<Post | undefined> {
