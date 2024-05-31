@@ -33,8 +33,14 @@ export const Footer: GlobalConfig = {
               },
             }),
           ],
+          admin: {
+            initCollapsed: true,
+          },
         },
       ],
+      admin: {
+        initCollapsed: true,
+      },
     },
   ],
 }
