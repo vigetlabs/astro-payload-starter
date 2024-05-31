@@ -1,3 +1,2 @@
-export * from 'payload'
-export { default as payload } from 'payload'
 export * from './payload-types'
+export type { PaginatedDocs } from 'payload/database'
