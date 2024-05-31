@@ -1,8 +1,7 @@
 ---
-import type { Footer, Page } from '@repo/cms'
+import type { Footer } from '@repo/cms'
 import { getFooterGlobals } from '@/api'
-import type { Props as LinkProps } from './Link.astro'
-import Link from './Link.astro'
+import Link, { type Props as LinkProps } from './Link.astro'
 
 const footerNavData = (await getFooterGlobals()) as Footer
 const { navColumns } = footerNavData

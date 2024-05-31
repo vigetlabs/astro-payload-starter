@@ -1,8 +1,7 @@
 ---
-import type { MainMenu, Page } from '@repo/cms'
+import type { MainMenu } from '@repo/cms'
 import { getMainMenuGlobals } from '@/api'
-import type { Props as LinkProps } from './Link.astro'
-import Link from './Link.astro'
+import Link, { type Props as LinkProps } from './Link.astro'
 
 interface Props {
   home: boolean
