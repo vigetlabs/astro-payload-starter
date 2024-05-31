@@ -1,6 +1,6 @@
 import qs from 'qs'
 
-import type { PaginatedDocs } from '@repo/cms/types'
+import type { PaginatedDocs } from '@repo/cms'
 
 export async function apiFetch<T = any>(
   url: string | URL,
