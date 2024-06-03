@@ -203,7 +203,7 @@ export interface User {
   id: string;
   firstName: string;
   lastName: string;
-  roles: ('admin' | 'editor')[];
+  roles: ('admin' | 'user')[];
   updatedAt: string;
   createdAt: string;
   email: string;
