@@ -19,6 +19,7 @@
   "dependencies": {
     "@payloadcms/db-mongodb": "beta",
     "@payloadcms/next": "beta",
+    "@payloadcms/plugin-seo": "beta",
     "@payloadcms/richtext-lexical": "beta",
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
