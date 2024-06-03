@@ -111,6 +111,7 @@ export interface Page {
       }
   )[];
   slug: string;
+  meta?: SeoData;
   updatedAt: string;
   createdAt: string;
 }
@@ -165,6 +166,15 @@ export interface ReusableContent {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SeoData".
+ */
+export interface SeoData {
+  title?: string | null;
+  description?: string | null;
+  image?: string | Media | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts".
  */
 export interface Post {
@@ -191,6 +201,7 @@ export interface Post {
   slug: string;
   authors?: (string | User)[] | null;
   categories?: (string | Category)[] | null;
+  meta?: SeoData;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;

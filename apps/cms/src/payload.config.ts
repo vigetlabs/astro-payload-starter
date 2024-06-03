@@ -1,4 +1,5 @@
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
+import { seoPlugin } from '@payloadcms/plugin-seo'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload/config'
@@ -25,6 +26,14 @@ export default buildConfig({
   collections: [Categories, Media, Pages, Posts, ReusableContent, Users],
   globals: [Footer, Header],
   editor: lexicalEditor({}),
+  plugins: [
+    seoPlugin({
+      collections: ['pages', 'posts'],
+      interfaceName: 'SeoData',
+      uploadsCollection: 'media',
+      generateTitle: ({ doc }: any) => `${doc?.title?.value} | My Site`,
+    }),
+  ],
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
