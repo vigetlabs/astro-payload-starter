@@ -5,13 +5,13 @@ import {
   lexicalHTML,
 } from '@payloadcms/richtext-lexical'
 
-import { publishedOnly } from '@/access/publishedOnly'
+import { usersOrPublished } from '@/access'
 import { slugField } from '@/fields/slug'
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
   access: {
-    read: publishedOnly,
+    read: usersOrPublished,
   },
   admin: {
     useAsTitle: 'title',

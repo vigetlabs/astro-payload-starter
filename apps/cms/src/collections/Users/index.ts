@@ -1,15 +1,18 @@
 import type { CollectionConfig } from 'payload/types'
 
-import { isAdmin, isAdminFieldLevel } from '@/access/isAdmin'
-import { isAdminOrSelf, isAdminOrSelfFieldLevel } from '@/access/isAdminOrSelf'
+import { admins } from '@/access'
+import { adminsAndUser } from './access/adminsAndUser'
+import { checkRole } from './checkRole'
+import { ensureFirstUserIsAdmin } from './hooks/ensureFirstUserIsAdmin'
 
 export const Users: CollectionConfig = {
   slug: 'users',
   access: {
-    create: isAdmin,
-    read: isAdminOrSelf,
-    update: isAdminOrSelf,
-    delete: isAdmin,
+    admin: ({ req: { user } }) => checkRole(['admin'], user),
+    create: admins,
+    read: adminsAndUser,
+    update: adminsAndUser,
+    delete: admins,
   },
   admin: {
     useAsTitle: 'email',
@@ -35,14 +38,17 @@ export const Users: CollectionConfig = {
     {
       name: 'roles',
       type: 'select',
-      hasMany: true,
-      defaultValue: ['editor'],
       required: true,
-      options: ['admin', 'editor'],
+      defaultValue: ['user'],
+      hasMany: true,
+      hooks: {
+        beforeChange: [ensureFirstUserIsAdmin],
+      },
+      options: ['admin', 'user'],
       access: {
-        read: isAdminOrSelfFieldLevel,
-        create: isAdminFieldLevel,
-        update: isAdminFieldLevel,
+        create: admins,
+        read: admins,
+        update: admins,
       },
     },
   ],
