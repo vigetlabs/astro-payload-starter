@@ -24,11 +24,11 @@ export async function getPayloadCollection<CollectionType>(
   query: any = null,
 ) {
   const stringifiedQuery = qs.stringify(query, { addQueryPrefix: true })
-  const url = `${import.meta.env.ASTRO_PUBLIC_CMS_URL}/api${path}${stringifiedQuery}`
+  const url = `${import.meta.env.CMS_URL}/api${path}${stringifiedQuery}`
   return apiFetch<PaginatedDocs<CollectionType>>(url)
 }
 
 export async function getPayloadDocument<CollectionType>(path: string) {
-  const url = `${import.meta.env.ASTRO_PUBLIC_CMS_URL}/api${path}`
+  const url = `${import.meta.env.CMS_URL}/api${path}`
   return apiFetch<CollectionType>(url)
 }

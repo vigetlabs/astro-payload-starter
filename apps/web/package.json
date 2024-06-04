@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@repo/cms": "workspace:*",
-    "@types/qs": "^6.9.15"
+    "@types/qs": "^6.9.15",
+    "dotenv": "^16.4.5"
   }
 }
