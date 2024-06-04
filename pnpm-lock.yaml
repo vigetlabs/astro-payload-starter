@@ -97,6 +97,9 @@ importers:
       '@types/qs':
         specifier: ^6.9.15
         version: 6.9.15
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
 
   packages/eslint-config:
     devDependencies:
