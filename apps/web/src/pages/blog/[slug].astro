@@ -20,10 +20,10 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props
-const { title, content_html } = post
+const { title, content_html, meta } = post
 ---
 
-<Layout title={title}>
+<Layout {...meta}>
   <h1>{title}</h1>
   <Fragment set:html={content_html} />
 </Layout>
