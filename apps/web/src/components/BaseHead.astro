@@ -1,22 +1,30 @@
 ---
 import type { Media } from '@repo/cms'
+import siteInfo, { type SiteInfo } from '@/data/site-info'
+import { resolveImage } from '@/helpers/resolveImage'
 
 export interface Props {
   title?: string
   description?: string
-  image?: Media
+  image?: Media | SiteInfo['image']
 }
 
-const { title, description, image } = Astro.props
+const {
+  title = siteInfo.title,
+  description = siteInfo.description,
+  image = siteInfo.image,
+} = Astro.props
+const pageTitle = [title, siteInfo.name].filter(Boolean).join(' - ')
+const resolvedImage = resolveImage(image)
 ---
 
 <meta charset="utf-8" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="viewport" content="width=device-width" />
 <meta name="generator" content={Astro.generator} />
-<title>{title}</title>
+<title>{pageTitle}</title>
 
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-{image && <meta property="og:image" content={image.url} />}
-{image && <meta property="og:image:alt" content={image.alt} />}
+{image && <meta property="og:image" content={resolvedImage.url} />}
+{image && <meta property="og:image:alt" content={resolvedImage.alt} />}
