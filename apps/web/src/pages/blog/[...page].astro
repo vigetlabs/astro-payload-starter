@@ -16,7 +16,13 @@ const { page } = Astro.props as { page: Page }
 <Layout title="Blog">
   <h1>Blog Index</h1>
   <ul>
-    {page.data.map((post: Post) => <li>{post.title}</li>)}
+    {
+      page.data.map((post: Post) => (
+        <li>
+          <a href={`/blog/${post.slug}`}>{post.title}</a>
+        </li>
+      ))
+    }
   </ul>
   {
     page.lastPage > 1 && (
