@@ -31,7 +31,7 @@ export default buildConfig({
       collections: ['pages', 'posts'],
       interfaceName: 'SeoData',
       uploadsCollection: 'media',
-      generateTitle: ({ doc }: any) => `${doc?.title?.value} | My Site`,
+      generateTitle: ({ doc }: any) => doc?.title?.value,
     }),
   ],
   secret: process.env.PAYLOAD_SECRET || '',
