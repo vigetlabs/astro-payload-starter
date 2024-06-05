@@ -7,7 +7,10 @@ type ImageProps = Media | SiteInfo['image']
  * Resolves image URLs using Payload's image `url` property (which is really
  * a path), and the `src` property in the image object in site-info.ts file.
  */
-export function resolveImage(image: ImageProps): { url: string; alt: string } {
+export function resolveImage(image: ImageProps): {
+  url: string
+  alt: ImageProps['alt']
+} {
   const base = import.meta.env.CMS_URL
   const imageSrc =
     (image as Media).url || (image as SiteInfo['image']).src || ''
