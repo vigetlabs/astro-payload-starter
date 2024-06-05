@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload/types'
 
+import { ImageBlock } from '@/blocks/ImageBlock'
 import { LogoGrid } from '@/blocks/LogoGrid'
-import { MediaBlock } from '@/blocks/MediaBlock'
 
 export const ReusableContent: CollectionConfig = {
   slug: 'reusable-content',
@@ -29,7 +29,7 @@ export const ReusableContent: CollectionConfig = {
         singular: 'Block',
         plural: 'Blocks',
       },
-      blocks: [LogoGrid, MediaBlock],
+      blocks: [ImageBlock, LogoGrid],
     },
   ],
 }

@@ -64,22 +64,9 @@ export interface Page {
   title: string;
   layout: (
     | {
-        logoGridFields?: {
-          logos?:
-            | {
-                logoMedia: string | Media;
-                id?: string | null;
-              }[]
-            | null;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'logoGrid';
-      }
-    | {
-        mediaBlockFields: {
+        imageBlockFields: {
           position?: ('default' | 'fullscreen') | null;
-          media: string | Media;
+          image: string | Media;
           caption?: {
             root: {
               type: string;
@@ -98,7 +85,20 @@ export interface Page {
         };
         id?: string | null;
         blockName?: string | null;
-        blockType: 'mediaBlock';
+        blockType: 'imageBlock';
+      }
+    | {
+        logoGridFields?: {
+          logos?:
+            | {
+                logoMedia: string | Media;
+                id?: string | null;
+              }[]
+            | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'logoGrid';
       }
     | {
         reusableContentBlockFields: {
@@ -124,22 +124,9 @@ export interface ReusableContent {
   title: string;
   layout: (
     | {
-        logoGridFields?: {
-          logos?:
-            | {
-                logoMedia: string | Media;
-                id?: string | null;
-              }[]
-            | null;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'logoGrid';
-      }
-    | {
-        mediaBlockFields: {
+        imageBlockFields: {
           position?: ('default' | 'fullscreen') | null;
-          media: string | Media;
+          image: string | Media;
           caption?: {
             root: {
               type: string;
@@ -158,7 +145,20 @@ export interface ReusableContent {
         };
         id?: string | null;
         blockName?: string | null;
-        blockType: 'mediaBlock';
+        blockType: 'imageBlock';
+      }
+    | {
+        logoGridFields?: {
+          logos?:
+            | {
+                logoMedia: string | Media;
+                id?: string | null;
+              }[]
+            | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'logoGrid';
       }
   )[];
   updatedAt: string;

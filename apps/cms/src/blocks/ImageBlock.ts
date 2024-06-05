@@ -9,11 +9,11 @@ import {
 
 import { blockFields } from '@/fields/blockFields'
 
-export const MediaBlock: Block = {
-  slug: 'mediaBlock',
+export const ImageBlock: Block = {
+  slug: 'imageBlock',
   fields: [
     blockFields({
-      name: 'mediaBlockFields',
+      name: 'imageBlockFields',
       fields: [
         {
           name: 'position',
@@ -31,10 +31,13 @@ export const MediaBlock: Block = {
           ],
         },
         {
-          name: 'media',
+          name: 'image',
           type: 'upload',
           relationTo: 'media',
           required: true,
+          filterOptions: {
+            mimeType: { contains: 'image' },
+          },
         },
         {
           name: 'caption',
