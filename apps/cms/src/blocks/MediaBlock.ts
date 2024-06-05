@@ -4,7 +4,6 @@ import {
   ItalicFeature,
   LinkFeature,
   StrikethroughFeature,
-  TreeViewFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
 
@@ -50,7 +49,6 @@ export const MediaBlock: Block = {
               ItalicFeature(),
               LinkFeature(),
               StrikethroughFeature(),
-              TreeViewFeature(),
             ],
           }),
         },
