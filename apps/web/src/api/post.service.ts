@@ -7,8 +7,6 @@ export async function getPostCollection(query: any = null) {
 }
 
 export async function getPostSingle(slug: string): Promise<Post | undefined> {
-  // TODO: might be able to query by id instead:
-  // GET /api/{collection-slug}/{id}
   const posts = await getPostCollection({
     where: { slug: { equals: slug } },
   })
