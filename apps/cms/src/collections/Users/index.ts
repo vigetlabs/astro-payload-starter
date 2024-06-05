@@ -2,13 +2,11 @@ import type { CollectionConfig } from 'payload/types'
 
 import { admins } from '@/access'
 import { adminsAndUser } from './access/adminsAndUser'
-import { checkRole } from './checkRole'
 import { ensureFirstUserIsAdmin } from './hooks/ensureFirstUserIsAdmin'
 
 export const Users: CollectionConfig = {
   slug: 'users',
   access: {
-    admin: ({ req: { user } }) => checkRole(['admin'], user),
     create: admins,
     read: adminsAndUser,
     update: adminsAndUser,
