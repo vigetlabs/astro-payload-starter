@@ -70,14 +70,7 @@ export interface Page {
         blockType: 'imageBlock';
       }
     | {
-        logoGridFields?: {
-          logos?:
-            | {
-                logoMedia: string | Media;
-                id?: string | null;
-              }[]
-            | null;
-        };
+        logoGridFields?: LogoGridFields;
         id?: string | null;
         blockName?: string | null;
         blockType: 'logoGrid';
@@ -122,6 +115,18 @@ export interface ImageBlockFields {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LogoGridFields".
+ */
+export interface LogoGridFields {
+  logos?:
+    | {
+        logo: string | Media;
+        id?: string | null;
+      }[]
+    | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "reusable-content".
  */
 export interface ReusableContent {
@@ -135,14 +140,7 @@ export interface ReusableContent {
         blockType: 'imageBlock';
       }
     | {
-        logoGridFields?: {
-          logos?:
-            | {
-                logoMedia: string | Media;
-                id?: string | null;
-              }[]
-            | null;
-        };
+        logoGridFields?: LogoGridFields;
         id?: string | null;
         blockName?: string | null;
         blockType: 'logoGrid';
