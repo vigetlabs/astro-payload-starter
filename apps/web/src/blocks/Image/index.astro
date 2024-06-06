@@ -8,7 +8,7 @@ interface Props {
 
 const { imageBlockFields } = Astro.props
 const { image } = imageBlockFields
-const resolvedImage = image && typeof image !== 'string' && resolveImage(image)
+const resolvedImage = image && resolveImage(image)
 ---
 
 <figure>

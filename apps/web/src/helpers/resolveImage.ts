@@ -1,7 +1,7 @@
 import type { Media } from '@repo/cms'
 import type { SiteInfo } from '@/data/site-info'
 
-type ImageProps = Media | SiteInfo['image']
+type ImageProps = string | Media | SiteInfo['image']
 
 /**
  * Resolves image URLs using Payload's image `url` property (which is really
@@ -9,8 +9,15 @@ type ImageProps = Media | SiteInfo['image']
  */
 export function resolveImage(image: ImageProps): {
   url: string
-  alt: ImageProps['alt']
+  alt: string
 } {
+  // payload-types.ts says Media can be a string???
+  if (typeof image === 'string')
+    return {
+      url: image,
+      alt: '',
+    }
+
   const base = import.meta.env.CMS_URL
   const imageSrc =
     (image as Media).url || (image as SiteInfo['image']).src || ''
