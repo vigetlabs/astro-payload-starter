@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets'
 import type { ImageBlockFields } from '@repo/cms'
 import { resolveImage } from '@/helpers/resolveImage'
 
@@ -12,7 +13,11 @@ const resolvedImage = image && resolveImage(image)
 ---
 
 <figure>
-  {resolvedImage && <img src={resolvedImage.url} alt={resolvedImage.alt} />}
+  {
+    resolvedImage && (
+      <Image src={resolvedImage.url} alt={resolvedImage.alt} inferSize={true} />
+    )
+  }
   {
     imageBlockFields.caption && (
       <figcaption>
