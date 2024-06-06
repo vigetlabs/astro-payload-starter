@@ -64,25 +64,7 @@ export interface Page {
   title: string;
   layout: (
     | {
-        imageBlockFields: {
-          position?: ('default' | 'fullscreen') | null;
-          image: string | Media;
-          caption?: {
-            root: {
-              type: string;
-              children: {
-                type: string;
-                version: number;
-                [k: string]: unknown;
-              }[];
-              direction: ('ltr' | 'rtl') | null;
-              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-              indent: number;
-              version: number;
-            };
-            [k: string]: unknown;
-          } | null;
-        };
+        imageBlockFields: ImageBlockFields;
         id?: string | null;
         blockName?: string | null;
         blockType: 'imageBlock';
@@ -117,6 +99,29 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ImageBlockFields".
+ */
+export interface ImageBlockFields {
+  position?: ('default' | 'fullscreen') | null;
+  image: string | Media;
+  caption?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "reusable-content".
  */
 export interface ReusableContent {
@@ -124,25 +129,7 @@ export interface ReusableContent {
   title: string;
   layout: (
     | {
-        imageBlockFields: {
-          position?: ('default' | 'fullscreen') | null;
-          image: string | Media;
-          caption?: {
-            root: {
-              type: string;
-              children: {
-                type: string;
-                version: number;
-                [k: string]: unknown;
-              }[];
-              direction: ('ltr' | 'rtl') | null;
-              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-              indent: number;
-              version: number;
-            };
-            [k: string]: unknown;
-          } | null;
-        };
+        imageBlockFields: ImageBlockFields;
         id?: string | null;
         blockName?: string | null;
         blockType: 'imageBlock';

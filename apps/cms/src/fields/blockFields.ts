@@ -5,14 +5,21 @@ import { themeField } from './theme'
 
 interface Args {
   name: string
+  interfaceName: string
   fields: Field[]
   overrides?: Partial<GroupField>
 }
 
-export const blockFields = ({ name, fields, overrides }: Args): Field =>
+export const blockFields = ({
+  name,
+  interfaceName,
+  fields,
+  overrides,
+}: Args): Field =>
   deepMerge(
     {
       name,
+      interfaceName,
       label: false,
       type: 'group',
       admin: {

@@ -14,6 +14,7 @@ export const ImageBlock: Block = {
   fields: [
     blockFields({
       name: 'imageBlockFields',
+      interfaceName: 'ImageBlockFields',
       fields: [
         {
           name: 'position',
