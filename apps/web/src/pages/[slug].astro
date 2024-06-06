@@ -3,6 +3,7 @@ import type { Page } from '@repo/cms'
 
 import { getPageCollection } from '@/api'
 import Layout from '@/layouts/Layout.astro'
+import PageBlocks from '@/components/PageBlocks.astro'
 
 interface Props {
   page: Page
@@ -20,9 +21,10 @@ export async function getStaticPaths() {
 }
 
 const { page } = Astro.props
-const { title, meta } = page
+const { title, layout, meta } = page
 ---
 
 <Layout {...meta}>
   <h1>{title}</h1>
+  <PageBlocks blocks={layout} />
 </Layout>
