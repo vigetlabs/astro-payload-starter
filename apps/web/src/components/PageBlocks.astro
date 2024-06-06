@@ -1,0 +1,29 @@
+---
+import Image from '@/blocks/Image/index.astro'
+// TODO: Import more block components here
+
+interface Props {
+  blocks: any[]
+}
+
+const blockComponents = {
+  imageBlock: Image,
+  // TODO: Add more block components here
+}
+
+const { blocks } = Astro.props
+---
+
+<Fragment>
+  {
+    blocks.map((block) => {
+      const { blockType } = block // e.g. imageBlock
+
+      if (blockType && blockType in blockComponents) {
+        const Block =
+          blockComponents[block.blockType as keyof typeof blockComponents]
+        return <Block {...block} />
+      }
+    })
+  }
+</Fragment>

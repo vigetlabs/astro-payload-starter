@@ -1,0 +1,24 @@
+---
+import type { ImageBlockFields } from '@repo/cms'
+import { resolveImage } from '@/helpers/resolveImage'
+
+interface Props {
+  imageBlockFields: ImageBlockFields
+}
+
+const { imageBlockFields } = Astro.props
+const { image } = imageBlockFields
+const resolvedImage = image && typeof image !== 'string' && resolveImage(image)
+---
+
+<figure>
+  {resolvedImage && <img src={resolvedImage.url} alt={resolvedImage.alt} />}
+  {
+    imageBlockFields.caption && (
+      <figcaption>
+        TODO: convert caption JSON to HTML and render it here
+        {/* {imageBlockFields.caption} */}
+      </figcaption>
+    )
+  }
+</figure>
