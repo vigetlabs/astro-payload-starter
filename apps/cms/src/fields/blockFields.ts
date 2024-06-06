@@ -5,7 +5,7 @@ import { themeField } from './theme'
 
 interface Args {
   name: string
-  interfaceName: string
+  interfaceName?: string
   fields: Field[]
   overrides?: Partial<GroupField>
 }
