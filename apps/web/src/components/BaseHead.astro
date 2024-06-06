@@ -26,5 +26,5 @@ const resolvedImage = resolveImage(image)
 
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-{image && <meta property="og:image" content={resolvedImage.url} />}
-{image && <meta property="og:image:alt" content={resolvedImage.alt} />}
+{resolvedImage && <meta property="og:image" content={resolvedImage.url} />}
+{resolvedImage && <meta property="og:image:alt" content={resolvedImage.alt} />}
