@@ -7,13 +7,14 @@ export const LogoGrid: Block = {
   fields: [
     blockFields({
       name: 'logoGridFields',
+      interfaceName: 'LogoGridFields',
       fields: [
         {
           name: 'logos',
           type: 'array',
           fields: [
             {
-              name: 'logoMedia',
+              name: 'logo',
               type: 'upload',
               relationTo: 'media',
               required: true,

@@ -1,0 +1,51 @@
+---
+import type { LogoGridFields } from '@repo/cms'
+import { resolveImage } from '@/helpers/resolveImage'
+
+interface Props {
+  logoGridFields: LogoGridFields
+}
+
+const { logoGridFields } = Astro.props
+const { logos } = logoGridFields
+---
+
+<ul>
+  {
+    logos &&
+      logos.map((obj) => {
+        const { logo } = obj
+        const resolvedImage = logo && resolveImage(logo)
+
+        return (
+          <li>
+            {resolvedImage && (
+              <img src={resolvedImage.url} alt={resolvedImage.alt} />
+            )}
+          </li>
+        )
+      })
+  }
+</ul>
+
+<style>
+  ul {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    list-style: none;
+    padding: 0 1rem;
+  }
+
+  li {
+    border: 1px solid;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
