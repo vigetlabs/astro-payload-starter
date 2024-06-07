@@ -112,6 +112,7 @@ export interface ImageBlockFields {
     };
     [k: string]: unknown;
   } | null;
+  caption_html?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
