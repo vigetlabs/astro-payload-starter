@@ -87,6 +87,9 @@ importers:
       qs:
         specifier: ^6.12.1
         version: 6.12.1
+      sharp:
+        specifier: 0.33.4
+        version: 0.33.4
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
