@@ -15,7 +15,13 @@ const resolvedImage = image && resolveImage(image)
 <figure>
   {
     resolvedImage && (
-      <Image src={resolvedImage.url} alt={resolvedImage.alt} inferSize={true} />
+      <Image
+        src={resolvedImage.url}
+        alt={resolvedImage.alt}
+        widths={[600, 800, 1000]}
+        sizes="(max-width: 600px) 100vw, 600px"
+        inferSize={true}
+      />
     )
   }
   {
