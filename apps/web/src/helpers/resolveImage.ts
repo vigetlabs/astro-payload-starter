@@ -21,10 +21,11 @@ export function resolveImage(image: ImageProps): {
   const base = import.meta.env.CMS_URL
   const imageSrc =
     (image as Media).url || (image as SiteInfo['image']).src || ''
+  const imageAlt = image.alt ?? ''
 
   const resolvedImageObject = {
     url: new URL(imageSrc, base).toString(),
-    alt: image.alt,
+    alt: imageAlt,
   }
 
   return resolvedImageObject
