@@ -3,3 +3,8 @@
 :root {
   --theme-color: #bc52ee;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
