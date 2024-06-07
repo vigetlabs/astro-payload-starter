@@ -1,10 +1,12 @@
 import type { Block } from 'payload/types'
 import {
   BoldFeature,
+  HTMLConverterFeature,
   ItalicFeature,
   LinkFeature,
   StrikethroughFeature,
   lexicalEditor,
+  lexicalHTML,
 } from '@payloadcms/richtext-lexical'
 
 import { blockFields } from '@/fields/blockFields'
@@ -50,12 +52,14 @@ export const ImageBlock: Block = {
             features: ({ defaultFeatures }) => [
               ...defaultFeatures,
               BoldFeature(),
+              HTMLConverterFeature({}),
               ItalicFeature(),
               LinkFeature(),
               StrikethroughFeature(),
             ],
           }),
         },
+        lexicalHTML('caption', { name: 'caption_html' }),
       ],
     }),
   ],

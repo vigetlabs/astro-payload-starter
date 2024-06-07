@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { imageBlockFields } = Astro.props
-const { image } = imageBlockFields
+const { image, caption_html } = imageBlockFields
 const resolvedImage = image && resolveImage(image)
 ---
 
@@ -20,10 +20,7 @@ const resolvedImage = image && resolveImage(image)
   }
   {
     imageBlockFields.caption && (
-      <figcaption>
-        TODO: convert caption JSON to HTML and render it here
-        {/* {imageBlockFields.caption} */}
-      </figcaption>
+      <figcaption set:html={imageBlockFields.caption_html} />
     )
   }
 </figure>
