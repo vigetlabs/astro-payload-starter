@@ -24,9 +24,5 @@ const resolvedImage = image && resolveImage(image)
       />
     )
   }
-  {
-    imageBlockFields.caption && (
-      <figcaption set:html={imageBlockFields.caption_html} />
-    )
-  }
+  {caption_html && <figcaption set:html={caption_html} />}
 </figure>
