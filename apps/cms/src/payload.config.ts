@@ -1,6 +1,9 @@
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { seoPlugin } from '@payloadcms/plugin-seo'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import {
+  HTMLConverterFeature,
+  lexicalEditor,
+} from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload/config'
 // import sharp from 'sharp'
@@ -25,7 +28,12 @@ export default buildConfig({
   },
   collections: [Categories, Media, Pages, Posts, ReusableContent, Users],
   globals: [Footer, Header],
-  editor: lexicalEditor({}),
+  editor: lexicalEditor({
+    features: ({ defaultFeatures }) => [
+      ...defaultFeatures,
+      HTMLConverterFeature(),
+    ],
+  }),
   plugins: [
     seoPlugin({
       collections: ['pages', 'posts'],

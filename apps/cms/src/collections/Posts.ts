@@ -35,12 +35,6 @@ export const Posts: CollectionConfig = {
       name: 'content',
       type: 'richText',
       required: true,
-      editor: lexicalEditor({
-        features: ({ defaultFeatures }) => [
-          ...defaultFeatures,
-          HTMLConverterFeature({}),
-        ],
-      }),
     },
     lexicalHTML('content', { name: 'content_html' }),
     {
