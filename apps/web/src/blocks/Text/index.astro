@@ -1,0 +1,15 @@
+---
+import type { TextFields } from '@repo/cms'
+
+interface Props {
+  id: string
+  textFields: TextFields
+}
+
+const { textFields } = Astro.props
+const { text_html } = textFields
+---
+
+<div>
+  {text_html && <Fragment set:html={text_html} />}
+</div>

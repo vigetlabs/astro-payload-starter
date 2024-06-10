@@ -1,6 +1,7 @@
 ---
 import Image from '@/blocks/Image/index.astro'
 import LogoGrid from '@/blocks/LogoGrid/index.astro'
+import Text from '@/blocks/Text/index.astro'
 
 interface Props {
   blocks: any[]
@@ -9,6 +10,7 @@ interface Props {
 const blockComponents = {
   imageBlock: Image,
   logoGrid: LogoGrid,
+  text: Text,
 }
 
 const { blocks } = Astro.props
