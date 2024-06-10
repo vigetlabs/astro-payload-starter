@@ -5,22 +5,22 @@ import { getPageCollection } from '@/api'
 import Layout from '@/layouts/Layout.astro'
 
 interface Props {
-  post: Page
+  page: Page
 }
 
 export async function getStaticPaths() {
-  const posts = await getPageCollection()
+  const pages = await getPageCollection()
 
-  return posts.docs.map((post: Page) => {
+  return pages.docs.map((page: Page) => {
     return {
-      params: { slug: post.slug },
-      props: { post },
+      params: { slug: page.slug },
+      props: { page },
     }
   })
 }
 
-const { post } = Astro.props
-const { title, meta } = post
+const { page } = Astro.props
+const { title, meta } = page
 ---
 
 <Layout {...meta}>
