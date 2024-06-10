@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload/types'
 
-import { ImageBlock } from '@/blocks/ImageBlock'
+import { Image } from '@/blocks/Image'
 import { LogoGrid } from '@/blocks/LogoGrid'
 import { Text } from '@/blocks/Text'
 
@@ -30,7 +30,7 @@ export const ReusableContent: CollectionConfig = {
         singular: 'Block',
         plural: 'Blocks',
       },
-      blocks: [ImageBlock, LogoGrid, Text],
+      blocks: [Image, LogoGrid, Text],
     },
   ],
 }

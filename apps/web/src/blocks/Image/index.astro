@@ -1,14 +1,14 @@
 ---
 import { Image } from 'astro:assets'
-import type { ImageBlockFields } from '@repo/cms'
+import type { ImageFields } from '@repo/cms'
 import { resolveImage } from '@/helpers/resolveImage'
 
 interface Props {
-  imageBlockFields: ImageBlockFields
+  imageFields: ImageFields
 }
 
-const { imageBlockFields } = Astro.props
-const { image, caption_html } = imageBlockFields
+const { imageFields } = Astro.props
+const { image, caption_html } = imageFields
 const resolvedImage = image && resolveImage(image)
 ---
 

@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload/types'
 
 import { slugField } from '@/fields/slug'
-import { ImageBlock } from '@/blocks/ImageBlock'
+import { Image } from '@/blocks/Image'
 import { LogoGrid } from '@/blocks/LogoGrid'
 import { ReusableContent } from '@/blocks/ReusableContent'
 import { Text } from '@/blocks/Text'
@@ -29,7 +29,7 @@ export const Pages: CollectionConfig = {
         singular: 'Block',
         plural: 'Blocks',
       },
-      blocks: [ImageBlock, LogoGrid, ReusableContent, Text],
+      blocks: [Image, LogoGrid, ReusableContent, Text],
     },
     slugField(),
   ],

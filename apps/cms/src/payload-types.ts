@@ -64,10 +64,10 @@ export interface Page {
   title: string;
   layout: (
     | {
-        imageBlockFields: ImageBlockFields;
+        imageFields: ImageFields;
         id?: string | null;
         blockName?: string | null;
-        blockType: 'imageBlock';
+        blockType: 'image';
       }
     | {
         logoGridFields?: LogoGridFields;
@@ -76,13 +76,13 @@ export interface Page {
         blockType: 'logoGrid';
       }
     | {
-        reusableContentBlockFields: {
+        reusableContentFields: {
           reusableContent: string | ReusableContent;
           customId?: string | null;
         };
         id?: string | null;
         blockName?: string | null;
-        blockType: 'reusableContentBlock';
+        blockType: 'reusableContent';
       }
     | {
         textFields?: TextFields;
@@ -98,9 +98,9 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ImageBlockFields".
+ * via the `definition` "ImageFields".
  */
-export interface ImageBlockFields {
+export interface ImageFields {
   position?: ('default' | 'fullscreen') | null;
   image: string | Media;
   caption?: {
@@ -141,10 +141,10 @@ export interface ReusableContent {
   title: string;
   layout: (
     | {
-        imageBlockFields: ImageBlockFields;
+        imageFields: ImageFields;
         id?: string | null;
         blockName?: string | null;
-        blockType: 'imageBlock';
+        blockType: 'image';
       }
     | {
         logoGridFields?: LogoGridFields;

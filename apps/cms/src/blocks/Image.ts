@@ -11,12 +11,12 @@ import {
 
 import { blockFields } from '@/fields/blockFields'
 
-export const ImageBlock: Block = {
-  slug: 'imageBlock',
+export const Image: Block = {
+  slug: 'image',
   fields: [
     blockFields({
-      name: 'imageBlockFields',
-      interfaceName: 'ImageBlockFields',
+      name: 'imageFields',
+      interfaceName: 'ImageFields',
       fields: [
         {
           name: 'position',
