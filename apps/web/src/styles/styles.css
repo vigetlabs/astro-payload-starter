@@ -1,10 +1,5 @@
 @import 'https://unpkg.com/modern-normalize';
 
-:root {
-  --theme-color: #bc52ee;
-}
+@import 'tokens/base.css';
 
-img {
-  max-width: 100%;
-  height: auto;
-}
+@import 'base/base.css';
