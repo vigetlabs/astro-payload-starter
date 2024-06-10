@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload/types'
 
 import { ImageBlock } from '@/blocks/ImageBlock'
 import { LogoGrid } from '@/blocks/LogoGrid'
+import { Text } from '@/blocks/Text'
 
 export const ReusableContent: CollectionConfig = {
   slug: 'reusable-content',
@@ -29,7 +30,7 @@ export const ReusableContent: CollectionConfig = {
         singular: 'Block',
         plural: 'Blocks',
       },
-      blocks: [ImageBlock, LogoGrid],
+      blocks: [ImageBlock, LogoGrid, Text],
     },
   ],
 }

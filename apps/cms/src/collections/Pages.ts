@@ -4,6 +4,7 @@ import { slugField } from '@/fields/slug'
 import { ImageBlock } from '@/blocks/ImageBlock'
 import { LogoGrid } from '@/blocks/LogoGrid'
 import { ReusableContent } from '@/blocks/ReusableContent'
+import { Text } from '@/blocks/Text'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -28,7 +29,7 @@ export const Pages: CollectionConfig = {
         singular: 'Block',
         plural: 'Blocks',
       },
-      blocks: [ImageBlock, LogoGrid, ReusableContent],
+      blocks: [ImageBlock, LogoGrid, ReusableContent, Text],
     },
     slugField(),
   ],

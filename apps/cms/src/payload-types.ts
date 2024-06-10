@@ -84,6 +84,12 @@ export interface Page {
         blockName?: string | null;
         blockType: 'reusableContentBlock';
       }
+    | {
+        textFields?: TextFields;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'text';
+      }
   )[];
   slug: string;
   meta?: SeoData;
@@ -146,9 +152,37 @@ export interface ReusableContent {
         blockName?: string | null;
         blockType: 'logoGrid';
       }
+    | {
+        textFields?: TextFields;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'text';
+      }
   )[];
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TextFields".
+ */
+export interface TextFields {
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text_html?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
