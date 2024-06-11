@@ -1,9 +1,5 @@
 import type { CollectionConfig } from 'payload/types'
-import {
-  HTMLConverterFeature,
-  lexicalEditor,
-  lexicalHTML,
-} from '@payloadcms/richtext-lexical'
+import { lexicalHTML } from '@payloadcms/richtext-lexical'
 
 import { usersOrPublished } from '@/access'
 import { slugField } from '@/fields/slug'
