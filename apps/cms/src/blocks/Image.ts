@@ -1,12 +1,19 @@
 import type { Block } from 'payload/types'
 import {
+  AlignFeature,
   BoldFeature,
   HTMLConverterFeature,
+  IndentFeature,
+  InlineCodeFeature,
+  InlineToolbarFeature,
   ItalicFeature,
-  LinkFeature,
-  StrikethroughFeature,
   lexicalEditor,
   lexicalHTML,
+  LinkFeature,
+  StrikethroughFeature,
+  SubscriptFeature,
+  SuperscriptFeature,
+  UnderlineFeature,
 } from '@payloadcms/richtext-lexical'
 
 import { blockFields } from '@/fields/blockFields'
@@ -45,17 +52,22 @@ export const Image: Block = {
         {
           name: 'caption',
           type: 'richText',
-          // TODO make this a "simple" editor with inline options only:
-          // bold, italic, link, strikethrough, etc
-          // removing defaultFeatures seems to break lexical's floating select toolbar
           editor: lexicalEditor({
-            features: ({ defaultFeatures }) => [
-              ...defaultFeatures,
+            // For all of the default features see:
+            // https://github.com/payloadcms/payload/blob/v3.0.0-beta.43/packages/richtext-lexical/src/field/lexical/config/server/default.ts
+            features: () => [
+              AlignFeature(),
               BoldFeature(),
-              HTMLConverterFeature({}),
+              HTMLConverterFeature(),
+              IndentFeature(),
+              InlineCodeFeature(),
+              InlineToolbarFeature(),
               ItalicFeature(),
               LinkFeature(),
               StrikethroughFeature(),
+              SubscriptFeature(),
+              SuperscriptFeature(),
+              UnderlineFeature(),
             ],
           }),
         },
