@@ -54,6 +54,11 @@ const InputField: React.FC<TextInputProps> = (props) => {
       const colorPreferences = await getPreference<string[]>(preferenceKey)
       if (colorPreferences) {
         setColorOptions(colorPreferences)
+      } else {
+        // add current value if not in colorOptions
+        if (value && colorOptions.indexOf(value as string) === -1) {
+          setColorOptions([value as string, ...colorOptions])
+        }
       }
     }
     mergeColorsFromPreferences()
