@@ -1,0 +1,66 @@
+@import '~@payloadcms/ui/scss';
+
+// $style-stroke-width-m (from original example) likely
+// to be deprecated soon, use custom css variables instead
+// see @payloadcms/ui/dist/scss/vars.scss (beta tag) for more info
+:root {
+  --style-stroke-width-m: 2px;
+}
+
+.add-color.btn {
+  // border: var(--style-stroke-width-m) solid var(--theme-elevation-900);
+  border: 0;
+  box-shadow: inset 0 0 0 var(--style-stroke-width-m) var(--theme-elevation-900);
+  border-radius: 50%;
+  margin: 0;
+  padding: 1px;
+
+  span {
+    justify-content: center;
+  }
+}
+
+.custom-color-picker {
+  &__btn.btn {
+    margin: base(0.25);
+
+    &:first-of-type {
+      margin-left: unset;
+    }
+  }
+
+  &__input {
+    // Payload exports a mixin from the vars file for quickly applying formInput rules to the class for our input
+    @include formInput;
+  }
+
+  &__colors {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: base(0.5);
+    list-style: none;
+    margin: 0 base(0.5) 0 0;
+    padding: 0;
+  }
+
+  .error {
+    background-color: var(--theme-error-100);
+    border: 1px solid var(--theme-error-400);
+  }
+}
+
+.chip {
+  border-radius: 50%;
+  border: var(--style-stroke-width-m) solid var(--theme-elevation-0);
+  height: base(1.25);
+  width: base(1.25);
+  box-shadow: none;
+
+  &--selected {
+    box-shadow: 0 0 0 var(--style-stroke-width-m) var(--theme-elevation-900);
+  }
+
+  &--clickable {
+    cursor: pointer;
+  }
+}
