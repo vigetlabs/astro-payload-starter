@@ -17,6 +17,8 @@ import {
 } from '@payloadcms/richtext-lexical'
 
 import { blockFields } from '@/fields/blockFields'
+import { blockWidthField } from '@/fields/blockWidth'
+import { themeField } from '@/fields/theme'
 
 export const Image: Block = {
   slug: 'image',
@@ -25,21 +27,6 @@ export const Image: Block = {
       name: 'imageFields',
       interfaceName: 'ImageFields',
       fields: [
-        {
-          name: 'position',
-          type: 'select',
-          defaultValue: 'default',
-          options: [
-            {
-              label: 'Default',
-              value: 'default',
-            },
-            {
-              label: 'Fullscreen',
-              value: 'fullscreen',
-            },
-          ],
-        },
         {
           name: 'image',
           type: 'upload',
@@ -73,6 +60,7 @@ export const Image: Block = {
         },
         lexicalHTML('caption', { name: 'caption_html' }),
       ],
+      settings: [themeField, blockWidthField],
     }),
   ],
 }
