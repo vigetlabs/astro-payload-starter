@@ -101,7 +101,6 @@ export interface Page {
  * via the `definition` "ImageFields".
  */
 export interface ImageFields {
-  position?: ('default' | 'fullscreen') | null;
   image: string | Media;
   caption?: {
     root: {
@@ -119,6 +118,8 @@ export interface ImageFields {
     [k: string]: unknown;
   } | null;
   caption_html?: string | null;
+  theme?: ('light' | 'dark') | null;
+  width?: ('content' | 'popout' | 'feature' | 'full') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -131,6 +132,7 @@ export interface LogoGridFields {
         id?: string | null;
       }[]
     | null;
+  width?: ('content' | 'popout' | 'feature' | 'full') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

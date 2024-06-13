@@ -1,12 +1,12 @@
 import type { Field, GroupField } from 'payload/types'
 
 import deepMerge from '@/utilities/deepMerge'
-import { themeField } from './theme'
 
 interface Args {
   name: string
   interfaceName?: string
   fields: Field[]
+  settings?: Field[]
   overrides?: Partial<GroupField>
 }
 
@@ -14,6 +14,7 @@ export const blockFields = ({
   name,
   interfaceName,
   fields,
+  settings = [],
   overrides,
 }: Args): Field =>
   deepMerge(
@@ -22,34 +23,20 @@ export const blockFields = ({
       interfaceName,
       label: false,
       type: 'group',
+      fields: [
+        ...fields,
+        {
+          type: 'collapsible',
+          label: 'Settings',
+          admin: {
+            initCollapsed: true,
+          },
+          fields: settings,
+        },
+      ],
       admin: {
         hideGutter: true,
-        style: {
-          margin: 0,
-          padding: 0,
-        },
       },
-      fields: [
-        // {
-        //   type: 'collapsible',
-        //   label: 'Settings',
-        //   admin: {
-        //     initCollapsed: true,
-        //   },
-        //   fields: [
-        //     {
-        //       type: 'group',
-        //       label: false,
-        //       admin: {
-        //         hideGutter: true,
-        //       },
-        //       name: 'settings',
-        //       fields: [themeField],
-        //     },
-        //   ],
-        // },
-        ...fields,
-      ],
     },
     overrides,
   )
