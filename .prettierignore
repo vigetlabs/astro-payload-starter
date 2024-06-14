@@ -8,3 +8,4 @@
 **/temp
 **/docs/**
 tsconfig.json
+*.hbs

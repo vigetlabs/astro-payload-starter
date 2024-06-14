@@ -30,6 +30,7 @@ This project starter includes the following apps and packages:
 - `web`: an [Astro](https://astro.build/) app
 - `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+- `@repo/ui`: a stub Astro component library used by the `web` app above
 
 ### Utilities
 
