@@ -70,65 +70,67 @@ const InputField: React.FC<TextInputProps> = (props) => {
     <div className={classes}>
       <FieldLabel htmlFor={path} label={label} required={required} />
       <FieldError showError={showError} message={errorMessage} />
-      {isAdding && (
-        <div>
-          <input
-            className={`${baseClass}__input`}
-            type="text"
-            placeholder="#000000"
-            onChange={(e) => setColorToAdd(e.target.value)}
-            value={colorToAdd}
-          />
-          <Button
-            className={`${baseClass}__btn`}
-            buttonStyle="primary"
-            iconPosition="left"
-            iconStyle="with-border"
-            size="small"
-            onClick={handleAddColor}
-            disabled={validateHexColor(colorToAdd) !== true}
-          >
-            Add
-          </Button>
-          <Button
-            className={`${baseClass}__btn`}
-            buttonStyle="secondary"
-            iconPosition="left"
-            iconStyle="with-border"
-            size="small"
-            onClick={() => setIsAdding(false)}
-          >
-            Cancel
-          </Button>
-        </div>
-      )}
-      {!isAdding && (
-        <Fragment>
-          <ul className={`${baseClass}__colors ${showError ? 'error' : ''}`}>
-            {colorOptions.map((color, i) => (
-              <li key={i}>
-                <button
-                  type="button"
-                  key={color}
-                  className={`chip ${color === value ? 'chip--selected' : ''} chip--clickable`}
-                  style={{ backgroundColor: color }}
-                  aria-label={color}
-                  onClick={() => setValue(color)}
-                />
-              </li>
-            ))}
-          </ul>
-          <Button
-            className="add-color"
-            icon="plus"
-            buttonStyle="icon-label"
-            onClick={() => {
-              setIsAdding(true)
-              setValue('')
-            }}
-          />
-        </Fragment>
-      )}
+      <div className={`${baseClass}__row`}>
+        {isAdding && (
+          <Fragment>
+            <input
+              className={`${baseClass}__input`}
+              type="color"
+              placeholder="#000000"
+              onChange={(e) => setColorToAdd(e.target.value)}
+              value={colorToAdd}
+            />
+            <Button
+              className={`${baseClass}__btn`}
+              buttonStyle="primary"
+              iconPosition="left"
+              iconStyle="with-border"
+              size="small"
+              onClick={handleAddColor}
+              disabled={validateHexColor(colorToAdd) !== true}
+            >
+              Add
+            </Button>
+            <Button
+              className={`${baseClass}__btn`}
+              buttonStyle="secondary"
+              iconPosition="left"
+              iconStyle="with-border"
+              size="small"
+              onClick={() => setIsAdding(false)}
+            >
+              Cancel
+            </Button>
+          </Fragment>
+        )}
+        {!isAdding && (
+          <Fragment>
+            <ul className={`${baseClass}__colors ${showError ? 'error' : ''}`}>
+              {colorOptions.map((color, i) => (
+                <li key={i}>
+                  <button
+                    type="button"
+                    key={color}
+                    className={`chip ${color === value ? 'chip--selected' : ''} chip--clickable`}
+                    style={{ backgroundColor: color }}
+                    aria-label={color}
+                    onClick={() => setValue(color)}
+                  />
+                </li>
+              ))}
+            </ul>
+            <Button
+              className="add-color"
+              icon="plus"
+              buttonStyle="icon-label"
+              onClick={() => {
+                setIsAdding(true)
+                setValue('')
+              }}
+            />
+          </Fragment>
+        )}
+      </div>
     </div>
   )
 }
