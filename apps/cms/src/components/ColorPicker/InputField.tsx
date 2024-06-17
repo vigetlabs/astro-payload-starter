@@ -5,7 +5,6 @@ import React, { useEffect, useState, useCallback, Fragment } from 'react'
 // https://github.com/payloadcms/custom-field-guide/blob/master/src/color-picker/InputField.tsx
 
 import { useField } from '@payloadcms/ui/forms/useField'
-import { usePreferences } from '@payloadcms/ui/providers/Preferences'
 import { Button } from '@payloadcms/ui/elements/Button'
 import { FieldLabel } from '@payloadcms/ui/forms/FieldLabel'
 import { FieldError } from '@payloadcms/ui/forms/FieldError'
@@ -26,8 +25,6 @@ const defaultColors = [
 ]
 const baseClass = 'custom-color-picker'
 
-const preferenceKey = 'color-picker-colors'
-
 const InputField: React.FC<TextInputProps> = (props) => {
   const { path, label, required, validate } = props
 
@@ -44,30 +41,16 @@ const InputField: React.FC<TextInputProps> = (props) => {
     .filter(Boolean)
     .join(' ')
 
-  const { getPreference, setPreference } = usePreferences()
   const [colorOptions, setColorOptions] = useState(defaultColors)
   const [isAdding, setIsAdding] = useState(false)
   const [colorToAdd, setColorToAdd] = useState('')
 
   useEffect(() => {
-    const mergeColorsFromPreferences = async () => {
-      const colorPreferences = await getPreference<string[]>(preferenceKey)
-      if (colorPreferences) {
-        setColorOptions(colorPreferences)
-
-        // add current value if not in the current user's preferences
-        if (value && colorPreferences.indexOf(value) === -1) {
-          setColorOptions([value, ...colorPreferences])
-        }
-      } else {
-        // add current value if not in colorOptions
-        if (value && colorOptions.indexOf(value as string) === -1) {
-          setColorOptions([value as string, ...colorOptions])
-        }
-      }
+    // add current value if not in colorOptions
+    if (value && colorOptions.indexOf(value as string) === -1) {
+      setColorOptions([value as string, ...colorOptions])
     }
-    mergeColorsFromPreferences()
-  }, [getPreference, setColorOptions])
+  }, [setColorOptions])
 
   const handleAddColor = useCallback(() => {
     setIsAdding(false)
@@ -81,10 +64,7 @@ const InputField: React.FC<TextInputProps> = (props) => {
 
     // update state with new colors
     setColorOptions(newOptions)
-
-    // store the user color preferences for future use
-    setPreference(preferenceKey, newOptions)
-  }, [colorOptions, setPreference, colorToAdd, setIsAdding, setValue])
+  }, [colorOptions, colorToAdd, setIsAdding, setValue])
 
   return (
     <div className={classes}>
