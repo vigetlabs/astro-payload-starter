@@ -60,6 +60,9 @@ importers:
         specifier: 0.33.4
         version: 0.33.4
     devDependencies:
+      '@turbo/gen':
+        specifier: ^1.12.4
+        version: 1.13.4(@swc/core@1.5.7)(@types/node@20.14.2)(typescript@5.4.5)
       '@types/node':
         specifier: ^20.14.2
         version: 20.14.2

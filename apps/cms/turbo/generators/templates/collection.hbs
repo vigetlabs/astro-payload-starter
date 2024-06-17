@@ -1,0 +1,22 @@
+import type { CollectionConfig } from 'payload/types'
+
+import { slugField } from '@/fields/slug'
+
+export const {{ pascalCase name }}: CollectionConfig = {
+  slug: '{{ kebabCase name }}',
+  access: {
+    read: () => true,
+  },
+  admin: {
+    defaultColumns: ['title', 'slug', 'createdAt'],
+    useAsTitle: 'title',
+  },
+  fields: [
+    {
+      name: 'title',
+      type: 'text',
+      required: true,
+    },
+    slugField(),
+  ],
+}

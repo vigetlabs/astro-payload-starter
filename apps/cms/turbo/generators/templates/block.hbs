@@ -1,0 +1,21 @@
+import type { Block } from 'payload/types'
+import { lexicalHTML } from '@payloadcms/richtext-lexical'
+
+import { blockFields } from '@/fields/blockFields'
+
+export const {{ pascalCase name }}: Block = {
+  slug: '{{ camelCase name }}',
+  fields: [
+    blockFields({
+      name: '{{ camelCase name }}Fields',
+      interfaceName: '{{ pascalCase name }}Fields',
+      fields: [
+        {
+          name: 'text',
+          type: 'richText',
+        },
+        lexicalHTML('text', { name: 'text_html' }),
+      ],
+    }),
+  ],
+}
