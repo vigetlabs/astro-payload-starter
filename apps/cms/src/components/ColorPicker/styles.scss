@@ -1,0 +1,96 @@
+@import '~@payloadcms/ui/scss';
+
+// $style-stroke-width-m (from original example) likely
+// to be deprecated soon, use custom css variables instead
+// see @payloadcms/ui/dist/scss/vars.scss (beta tag) for more info
+:root {
+  --style-stroke-width-m: 2px;
+}
+
+.add-color.btn {
+  // border: var(--style-stroke-width-m) solid var(--theme-elevation-900);
+  border: 0;
+  box-shadow: inset 0 0 0 var(--style-stroke-width-m) var(--theme-elevation-900);
+  border-radius: 50%;
+  margin: 0;
+  padding: 1px;
+
+  span {
+    justify-content: center;
+  }
+}
+
+.custom-color-picker {
+  &__row {
+    align-items: center;
+    display: flex;
+    gap: base(0.5);
+  }
+
+  &__btn.btn {
+    margin: 0;
+  }
+
+  &__input {
+    align-self: stretch;
+    appearance: none !important;
+    border-radius: var(--style-radius-m) !important;
+    width: revert !important;
+    height: auto !important;
+    padding: 0 !important;
+
+    &::-webkit-color-swatch-wrapper {
+      padding: var(--style-stroke-width-m);
+    }
+
+    &::-webkit-color-swatch {
+      border-radius: var(--style-radius-s) !important;
+      border: none;
+    }
+
+    &::-moz-color-swatch {
+      border-radius: var(--style-radius-s) !important;
+      box-shadow: inset 0 0 0 var(--style-stroke-width-m) #fff;
+    }
+
+    &::-moz-color-swatch,
+    &::-moz-focus-inner {
+      border: 0;
+    }
+
+    &::-moz-focus-inner {
+      padding: 0;
+    }
+  }
+
+  &__colors {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: base(0.5);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .error {
+    background-color: var(--theme-error-100);
+    border: 1px solid var(--theme-error-400);
+  }
+}
+
+.chip {
+  border-radius: 50%;
+  border: var(--style-stroke-width-m) solid var(--theme-border-color);
+  display: block;
+  height: base(1.25);
+  width: base(1.25);
+  box-shadow: none;
+
+  &--selected {
+    box-shadow: 0 0 0 var(--style-stroke-width-m) var(--theme-elevation-900);
+  }
+
+  &--clickable {
+    cursor: pointer;
+  }
+}
