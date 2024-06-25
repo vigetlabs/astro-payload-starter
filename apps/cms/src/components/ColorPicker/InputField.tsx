@@ -33,7 +33,7 @@ const InputField: React.FC<TextInputProps> = (props) => {
     setValue,
     errorMessage,
     showError,
-  } = useField({
+  } = useField<string>({
     path,
     validate,
   })
