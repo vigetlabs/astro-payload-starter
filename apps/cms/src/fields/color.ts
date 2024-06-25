@@ -1,16 +1,23 @@
-import { Field } from 'payload/types'
+import { Field, TextField } from 'payload/types'
 import { validateHexColor } from '@/utilities/validateHexColor'
 import InputField from '@/components/ColorPicker/InputField'
+import deepMerge from '@/utilities/deepMerge'
 // import Cell from '@/components/ColorPicker/Cell'
 
-export const colorField: Field = {
-  name: 'color',
-  type: 'text',
-  validate: validateHexColor,
-  admin: {
-    components: {
-      Field: InputField,
-      // Cell,
+type ColorType = (options?: { overrides?: Partial<TextField> }) => Field
+
+export const colorField: ColorType = ({ overrides = {} } = {}) => {
+  let colorResult: Field = {
+    name: 'color',
+    type: 'text',
+    validate: validateHexColor,
+    admin: {
+      components: {
+        Field: InputField,
+        // Cell,
+      },
     },
-  },
+  }
+
+  return deepMerge(colorResult, overrides)
 }
