@@ -118,7 +118,6 @@ export interface ImageFields {
     [k: string]: unknown;
   } | null;
   caption_html?: string | null;
-  theme?: ('light' | 'dark') | null;
   width?: ('content' | 'popout' | 'feature' | 'full') | null;
 }
 /**
