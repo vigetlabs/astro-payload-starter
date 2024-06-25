@@ -1,7 +1,7 @@
 import type { GlobalConfig } from 'payload/types'
 
 import { admins } from '@/access'
-import link from '@/fields/link'
+import { linkField } from '@/fields/link'
 
 export const Header: GlobalConfig = {
   slug: 'header',
@@ -45,7 +45,7 @@ export const Header: GlobalConfig = {
             condition: (_, siblingData) => siblingData.type === 'directLink',
           },
           fields: [
-            link({
+            linkField({
               appearances: false,
               overrides: {
                 label: false,
@@ -61,7 +61,7 @@ export const Header: GlobalConfig = {
             condition: (_, siblingData) => siblingData.type === 'dropdown',
           },
           fields: [
-            link({
+            linkField({
               appearances: false,
               overrides: {
                 label: false,
@@ -83,7 +83,7 @@ export const Header: GlobalConfig = {
         plural: 'CTAs',
       },
       fields: [
-        link({
+        linkField({
           overrides: {
             label: false,
           },

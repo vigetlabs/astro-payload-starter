@@ -1,7 +1,7 @@
 import type { GlobalConfig } from 'payload/types'
 
 import { admins } from '@/access'
-import link from '@/fields/link'
+import { linkField } from '@/fields/link'
 
 export const Footer: GlobalConfig = {
   slug: 'footer',
@@ -26,7 +26,7 @@ export const Footer: GlobalConfig = {
           type: 'array',
           minRows: 1,
           fields: [
-            link({
+            linkField({
               appearances: false,
               overrides: {
                 label: false,
