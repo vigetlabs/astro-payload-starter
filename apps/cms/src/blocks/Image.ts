@@ -18,7 +18,6 @@ import {
 
 import { blockFields } from '@/fields/blockFields'
 import { blockWidthField } from '@/fields/blockWidth'
-import { themeField } from '@/fields/theme'
 
 export const Image: Block = {
   slug: 'image',
@@ -60,7 +59,7 @@ export const Image: Block = {
         },
         lexicalHTML('caption', { name: 'caption_html' }),
       ],
-      settings: [themeField, blockWidthField],
+      settings: [blockWidthField],
     }),
   ],
 }
