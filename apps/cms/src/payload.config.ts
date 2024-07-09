@@ -47,7 +47,7 @@ export default buildConfig({
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: mongooseAdapter({
-    url: process.env.DATABASE_URI || '',
+    url: process.env.MONGODB_URI || '',
   }),
 
   // Sharp is now an optional dependency -
