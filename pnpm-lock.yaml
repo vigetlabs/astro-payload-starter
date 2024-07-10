@@ -24,16 +24,16 @@ importers:
   apps/cms:
     dependencies:
       '@payloadcms/db-mongodb':
-        specifier: beta
+        specifier: 3.0.0-beta.40
         version: 3.0.0-beta.40(@aws-sdk/client-sso-oidc@3.590.0)(payload@3.0.0-beta.40(@swc/core@1.5.7(@swc/helpers@0.5.11))(@swc/types@0.1.7)(graphql@16.8.1)(typescript@5.4.5))
       '@payloadcms/next':
-        specifier: beta
+        specifier: 3.0.0-beta.40
         version: 3.0.0-beta.40(@types/react@18.3.3)(graphql@16.8.1)(monaco-editor@0.48.0)(next@14.3.0-canary.68(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(payload@3.0.0-beta.40(@swc/core@1.5.7(@swc/helpers@0.5.11))(@swc/types@0.1.7)(graphql@16.8.1)(typescript@5.4.5))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.4.5)
       '@payloadcms/plugin-seo':
-        specifier: beta
+        specifier: 3.0.0-beta.40
         version: 3.0.0-beta.40(@payloadcms/translations@3.0.0-beta.40)(@payloadcms/ui@3.0.0-beta.40(@types/react@18.3.3)(monaco-editor@0.48.0)(next@14.3.0-canary.68(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(payload@3.0.0-beta.40(@swc/core@1.5.7(@swc/helpers@0.5.11))(@swc/types@0.1.7)(graphql@16.8.1)(typescript@5.4.5))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(payload@3.0.0-beta.40(@swc/core@1.5.7(@swc/helpers@0.5.11))(@swc/types@0.1.7)(graphql@16.8.1)(typescript@5.4.5))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@payloadcms/richtext-lexical':
-        specifier: beta
+        specifier: 3.0.0-beta.40
         version: 3.0.0-beta.40(kzlyadac4faj4hou222yolw26y)
       '@payloadcms/ui':
         specifier: 3.0.0-beta.40
@@ -48,7 +48,7 @@ importers:
         specifier: 14.3.0-canary.68
         version: 14.3.0-canary.68(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)
       payload:
-        specifier: beta
+        specifier: 3.0.0-beta.40
         version: 3.0.0-beta.40(@swc/core@1.5.7(@swc/helpers@0.5.11))(@swc/types@0.1.7)(graphql@16.8.1)(typescript@5.4.5)
       react:
         specifier: ^18.3.1
@@ -5702,10 +5702,6 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  yocto-queue@1.0.0:
-    resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
-    engines: {node: '>=12.20'}
-
   yocto-queue@1.1.1:
     resolution: {integrity: sha512-b4JR1PFR10y1mKjhHY9LaGo6tmrgjit7hxVIeAmyMw3jegXR4dhYqLaQF5zMXZxY7tLpMyJeLjr1C4rLmkVe8g==}
     engines: {node: '>=12.20'}
@@ -11145,7 +11141,7 @@ snapshots:
 
   p-limit@4.0.0:
     dependencies:
-      yocto-queue: 1.0.0
+      yocto-queue: 1.1.1
 
   p-limit@5.0.0:
     dependencies:
@@ -12783,8 +12779,6 @@ snapshots:
   yn@3.1.1: {}
 
   yocto-queue@0.1.0: {}
-
-  yocto-queue@1.0.0: {}
 
   yocto-queue@1.1.1: {}
 
