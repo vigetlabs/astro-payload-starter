@@ -19,6 +19,7 @@ export const appearanceOptions = {
 
 export type LinkAppearances = 'primary' | 'secondary' | 'default'
 
+// eslint-disable-next-line no-unused-vars
 type LinkType = (options?: {
   appearances?: LinkAppearances[] | false
   disableLabel?: boolean
