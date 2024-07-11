@@ -26,7 +26,7 @@ cp apps/cms/.env.example apps/cms/.env
 cp apps/web/.env.example apps/web/.env
 ```
 
-After your project is created, be sure to remove this "create project" section from your new project's readme file.
+After your project is created, be sure to remove this "create project" section from your new project's readme file, and update the rest of the readme as needed.
 
 ## Setup
 
