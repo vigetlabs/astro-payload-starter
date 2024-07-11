@@ -1,12 +1,12 @@
 ---
-import type { Media } from '@repo/cms'
+import type { SeoData } from '@repo/cms'
 import siteInfo, { type SiteInfo } from '@/data/site-info'
 import { resolveImage } from '@/helpers/resolveImage'
 
 export interface Props {
-  title?: string
-  description?: string
-  image?: Media | SiteInfo['image']
+  title?: SeoData['title']
+  description?: SeoData['description']
+  image?: SeoData['image'] | SiteInfo['image']
 }
 
 const {
