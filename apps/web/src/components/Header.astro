@@ -35,7 +35,9 @@ const { tabs, ctas } = headerData
         }
       })
     }
-    {ctas?.map(({ link }) => <Link {...(link as LinkField)} />)}
+    <div>
+      {ctas?.map(({ link }) => <Link {...(link as LinkField)} />)}
+    </div>
   </nav>
 </header>
 
@@ -58,6 +60,14 @@ const { tabs, ctas } = headerData
     display: flex;
     gap: 1rem;
     list-style: none;
+    flex-grow: 1;
+
+    div {
+      align-items: center;
+      display: flex;
+      gap: 1rem;
+      margin-inline-start: auto;
+    }
   }
 
   summary {
