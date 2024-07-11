@@ -79,6 +79,23 @@ To build all apps and packages, run the following command:
 turbo build
 ```
 
+## Code Generators
+
+Several custom generators are available for extending the cms app and the ui package in a structured way.
+
+- payload-configuration: Adds a new configuration file for Payload CMS
+- astro-component: Adds a new primitive UI component for Astro
+
+To generate new source code using one of these custom generators, run the following command from anywhere within the monorepo:
+
+```bash
+turbo gen
+```
+
+Select a generator from the list, and follow the prompts to provide the requested information.
+
+For more info on code generators, see the [generating code](https://turbo.build/repo/docs/guides/generating-code) guide, as well as the API reference for the [generate command](https://turbo.build/repo/docs/reference/generate).
+
 ## Useful Links
 
 - [Astro](https://docs.astro.build)
