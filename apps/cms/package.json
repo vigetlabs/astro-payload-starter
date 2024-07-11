@@ -32,6 +32,7 @@
     "sharp": "0.33.4"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^14.2.5",
     "@turbo/gen": "^2.0.6",
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
