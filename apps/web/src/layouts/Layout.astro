@@ -1,8 +1,10 @@
 ---
 import '@/styles/styles.css'
-import BaseHead from '@/components/BaseHead.astro'
+import BaseHead, { type Props as HeadProps } from '@/components/BaseHead.astro'
 import Header from '@/components/Header.astro'
 import Footer from '@/components/Footer.astro'
+
+interface Props extends HeadProps {}
 
 const { ...head } = Astro.props
 ---

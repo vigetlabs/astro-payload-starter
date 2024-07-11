@@ -1,7 +1,7 @@
 import type { Media } from '@repo/cms'
 import type { SiteInfo } from '@/data/site-info'
 
-type ImageProps = string | Media | SiteInfo['image']
+type ImageProps = string | Media | SiteInfo['image'] | null
 
 /**
  * Resolves image URLs using Payload's image `url` property (which is really
@@ -21,7 +21,7 @@ export function resolveImage(image: ImageProps): {
   const base = import.meta.env.CMS_URL
   const imageSrc =
     (image as Media).url || (image as SiteInfo['image']).src || ''
-  const imageAlt = image.alt ?? ''
+  const imageAlt = image?.alt ?? ''
 
   const resolvedImageObject = {
     url: new URL(imageSrc, base).toString(),
