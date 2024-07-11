@@ -4,6 +4,7 @@ import InputField from '@/components/ColorPicker/InputField'
 import deepMerge from '@/utilities/deepMerge'
 // import Cell from '@/components/ColorPicker/Cell'
 
+// eslint-disable-next-line no-unused-vars
 type ColorType = (options?: { overrides?: Partial<TextField> }) => Field
 
 export const colorField: ColorType = ({ overrides = {} } = {}) => {
